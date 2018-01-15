@@ -1,0 +1,23 @@
+{
+  "name": "yelp_camp",
+  "version": "1.0.0",
+  "description": "Modeled after 'Yelp Camp Project' via Udemy: The Web Developer Bootcamp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwithac/yelp_camp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwithac/yelp_camp/issues"
+  },
+  "homepage": "https://github.com/cwithac/yelp_camp#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
