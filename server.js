@@ -14,7 +14,7 @@ app.get('/campgrounds', (req, res) => {
     { name: 'Granite Hill', image: 'https://farm9.staticflickr.com/8422/7842069486_c61e4c6025.jpg' },
     { name: 'Mountain Goats Rest', image: 'https://farm9.staticflickr.com/8454/7930198240_856a39bf27.jpg' }
   ];
-  res.render('campgrounds')
+  res.render('campgrounds', {campgrounds: campgrounds});
 });
 
 app.listen(PORT, () => {
