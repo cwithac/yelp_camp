@@ -2,19 +2,12 @@ const express = require('express');
 const app = express();
 const PORT = 3001;
 const mongoose = require('mongoose');
+const Campground = require('./models/campgrounds.js');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
-
-const campgroundSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String
-});
-
-const Campground = mongoose.model('Campground', campgroundSchema);
 
 app.get('/', (req, res) => {
   res.render('index');
