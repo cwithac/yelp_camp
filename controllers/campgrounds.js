@@ -6,7 +6,7 @@ const Campground = require('../models/campgrounds.js');
 app.get('/', async (req, res) => {
   try {
     const allCampgrounds = await Campground.find();
-    res.render('index', {campgrounds: allCampgrounds});
+    res.render('index', {allCampgrounds});
   } catch (err) {
     res.send(err.message);
   };
