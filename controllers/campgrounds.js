@@ -11,8 +11,8 @@ app.get('/', async (req, res) => {
   };
 });
 
-app.get('/create', (req, res) => {
-    res.render('create');
+app.get('/new', (req, res) => {
+    res.render('new');
 });
 
 app.post('/', async (req, res) => {
@@ -27,7 +27,7 @@ app.post('/', async (req, res) => {
 app.get('/:id', async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id);
-    res.render('read', {foundCampground});
+    res.render('show', {foundCampground});
   } catch (err) {
     res.send(err.message)
   };
