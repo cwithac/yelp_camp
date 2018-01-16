@@ -2,8 +2,27 @@
 
 <% include partials/nav %>
 
-<h1>Testing</h1>
+<main class="container">
+  <header class="jumbotron">
+    <h1>Yelp Campgrounds</h1>
+    <p>Campground Sites Across the Country</p>
+    <a class="btn btn-primary" href="/campgrounds/new">Add New Campground</a>
+  </header>
 
-<a href="/campgrounds">View All Campgrounds</a>
+  <section>
+    <div class="row">
+      <% for (campground of campgrounds) { %>
+          <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+              <img src="<%= campground.image %>" alt="campground"/>
+              <h4 class="text-center caption"><%= campground.name %></h4>
+              <p class="text-center"><a class="btn btn-primary" href="campgrounds/<%= campground._id %>">More Info</a></p>
+            </div>
+          </div>
+      <% } %>
+    </div>
+  </section>
+
+</main>
 
 <% include partials/foot %>

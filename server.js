@@ -16,7 +16,7 @@ app.use('/campgrounds', campgroundsController);
 
 //Landing Page Route
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('landing');
 });
 
 //Listeners for app and MongoDB
