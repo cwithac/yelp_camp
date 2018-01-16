@@ -3,12 +3,14 @@ const express = require('express');
 const app = express();
 const PORT = 3001;
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 //Middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 //Controller Middleware
 const campgroundsController = require('./controllers/campgrounds.js');

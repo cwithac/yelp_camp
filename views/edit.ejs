@@ -5,7 +5,7 @@
 <main class="container">
     <h1 class="text-center">Edit <%= foundCampground.name %></h1>
     <div class="form">
-      <form action="/campgrounds" method="POST">
+      <form action="/campgrounds/<%= foundCampground._id %>?_method=PUT" method="POST">
         <div class="form-group">
             <label for="campground-name">Campground Name:</label>
             <input id="campground-name" class="form-control" type="text" name="name" value="<%= foundCampground.name %>" required>

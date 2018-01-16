@@ -53,4 +53,15 @@ app.get('/:id/edit', async (req, res) => {
   };
 });
 
+//Update
+app.put('/:id', async (req, res) => {
+  try {
+    const updatedCampground = await Campground.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.redirect('/campgrounds/' + updatedCampground._id);
+  } catch (err) {
+    res.send(err.message);
+  };
+});
+
+
 module.exports = app;
