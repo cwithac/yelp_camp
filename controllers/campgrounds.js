@@ -39,7 +39,17 @@ app.get('/:id', async (req, res) => {
     const foundCampground = await Campground.findById(req.params.id);
     res.render('show', {foundCampground});
   } catch (err) {
-    res.send(err.message)
+    res.send(err.message);
+  };
+});
+
+//Edit
+app.get('/:id/edit', async (req, res) => {
+  try {
+    const foundCampground = await Campground.findById(req.params.id);
+    res.render('edit', {foundCampground});
+  } catch (err) {
+    res.send(err.message);
   };
 });
 

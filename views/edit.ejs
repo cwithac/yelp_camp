@@ -1,0 +1,27 @@
+<% include partials/head %>
+
+<% include partials/nav %>
+
+<main class="container">
+    <h1 class="text-center">Edit <%= foundCampground.name %></h1>
+    <div class="form">
+      <form action="/campgrounds" method="POST">
+        <div class="form-group">
+            <label for="campground-name">Campground Name:</label>
+            <input id="campground-name" class="form-control" type="text" name="name" value="<%= foundCampground.name %>" required>
+        </div>
+        <div class="form-group">
+            <label for="campground-description">Description: </label>
+            <textarea id="campground-description" class="form-control" name="description" rows="5"><%= foundCampground.description %></textarea>
+        </div>
+        <div class="form-group">
+          <label for="campground-img">Image URL:</label>
+          <input id="campground-img" class="form-control"  type="url" name="image" value="<%= foundCampground.image %>">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block">Submit Changes</button>
+      </form>
+      <a href="/campgrounds"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Campgrounds</a>
+    </div>
+</main>
+
+<% include partials/foot %>
