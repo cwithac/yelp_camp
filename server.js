@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
 
 app.get('/campgrounds', async (req, res) => {
   try {
-    const campgrounds = await Campground.find();
-    res.render('campgrounds', {campgrounds: campgrounds});
+    const allCampgrounds = await Campground.find();
+    res.render('campgrounds', {campgrounds: allCampgrounds});
   } catch (err) {
     res.send(err.message);
   };
@@ -32,12 +32,13 @@ app.get('/campgrounds/create', (req, res) => {
     res.render('create');
 });
 
-app.post('/campgrounds', (req, res) => {
-  const name = req.body.name;
-  const image = req.body.image;
-  const newCampground = {name: name, image: image};
-  campgrounds.push(newCampground);
-  res.redirect('campgrounds')
+app.post('/campgrounds', async (req, res) => {
+  try {
+    const newCampground = await Campground.create(req.body);
+    res.redirect('campgrounds');
+  } catch (err) {
+    res.send(err.message);
+  };
 });
 
 const mongoURI = 'mongodb://localhost/yelpcamp';
