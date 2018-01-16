@@ -1,31 +1,31 @@
 const express = require('express');
 const app = express();
 const PORT = 3001;
+const mongoose = require('mongoose');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 
-const campgrounds = [
-  { name: 'Salmon Creek', image: 'https://farm2.staticflickr.com/1086/882244782_d067df2717.jpg' },
-  { name: 'Granite Hill', image: 'https://farm6.staticflickr.com/5181/5641024448_04fefbb64d.jpg' },
-  { name: 'Mountain Goats Rest', image: 'https://farm9.staticflickr.com/8454/7930198240_856a39bf27.jpg' },
-  { name: 'Salmon Creek', image: 'https://farm2.staticflickr.com/1086/882244782_d067df2717.jpg' },
-  { name: 'Granite Hill', image: 'https://farm6.staticflickr.com/5181/5641024448_04fefbb64d.jpg' },
-  { name: 'Mountain Goats Rest', image: 'https://farm9.staticflickr.com/8454/7930198240_856a39bf27.jpg' },
-  { name: 'Salmon Creek', image: 'https://farm2.staticflickr.com/1086/882244782_d067df2717.jpg' },
-  { name: 'Granite Hill', image: 'https://farm6.staticflickr.com/5181/5641024448_04fefbb64d.jpg' },
-  { name: 'Mountain Goats Rest', image: 'https://farm9.staticflickr.com/8454/7930198240_856a39bf27.jpg' }
-];
+const campgroundSchema = new mongoose.Schema({
+  name: String,
+  image: String
+});
+
+const Campground = mongoose.model('Campground', campgroundSchema);
 
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/campgrounds', (req, res) => {
-
-  res.render('campgrounds', {campgrounds: campgrounds});
+app.get('/campgrounds', async (req, res) => {
+  try {
+    const campgrounds = await Campground.find();
+    res.render('campgrounds', {campgrounds: campgrounds});
+  } catch (err) {
+    res.send(err.message);
+  };
 });
 
 app.get('/campgrounds/create', (req, res) => {
@@ -39,6 +39,10 @@ app.post('/campgrounds', (req, res) => {
   campgrounds.push(newCampground);
   res.redirect('campgrounds')
 });
+
+const mongoURI = 'mongodb://localhost/yelpcamp';
+mongoose.connect(mongoURI, { useMongoClient: true});
+mongoose.Promise = global.Promise;
 
 app.listen(PORT, () => {
   console.log('Yelp Camp is listening on port', PORT);
