@@ -12,3 +12,7 @@
 .navbar-brand {
   font-size: 2em;
 }
+
+.inline {
+  display: inline;
+}
