@@ -7,6 +7,7 @@
 Technologies Used:
 
 - NPM Express, EJS
+- MongoDB/Mongoose
 - Bootstrap
 ```
 
