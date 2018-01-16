@@ -41,6 +41,15 @@ app.post('/campgrounds', async (req, res) => {
   };
 });
 
+app.get('/campgrounds/:id', async (req, res) => {
+  try {
+    const foundCampground = await Campground.findById(req.params.id);
+    res.render('read', {foundCampground});
+  } catch (err) {
+    res.send(err.message)
+  };
+});
+
 const mongoURI = 'mongodb://localhost/yelpcamp';
 mongoose.connect(mongoURI, { useMongoClient: true});
 mongoose.Promise = global.Promise;
