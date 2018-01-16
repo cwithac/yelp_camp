@@ -71,6 +71,7 @@ app.put('/:id', async (req, res) => {
 app.delete('/:id', async (req, res) => {
   try {
     const deletedCampground = await Campground.findByIdAndRemove(req.params.id);
+    const associatedComments = await Comment.find({ campground: deletedCampground._id }).remove();
     res.redirect('/campgrounds')
   } catch (err) {
     res.send(err.message);
