@@ -6,7 +6,7 @@
   <header class="jumbotron">
     <h1>Yelp Campgrounds</h1>
     <p>Campground Sites Across the Country</p>
-    <a class="btn btn-primary" href="/campgrounds/new">Add New Campground</a>
+    <a class="btn btn-primary" href="/campgrounds/new"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Campground</a>
   </header>
 
   <section>
@@ -16,7 +16,7 @@
             <div class="thumbnail">
               <img src="<%= campground.image %>" alt="campground"/>
               <h4 class="text-center caption"><%= campground.name %></h4>
-              <p class="text-center"><a class="btn btn-primary" href="campgrounds/<%= campground._id %>">More Info</a></p>
+              <p class="text-right"><a class="btn btn-default" href="campgrounds/<%= campground._id %>"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></p>
             </div>
           </div>
       <% } %>
