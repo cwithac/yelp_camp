@@ -13,13 +13,11 @@
     <div class="row">
       <% for (campground of campgrounds) { %>
           <div class="col-md-3 col-sm-6">
-            <a href="campgrounds/<%= campground._id %>">
-              <div class="thumbnail">
-                <img src="<%= campground.image %>" alt="campground"/>
-                <h4 class="text-center caption"><%= campground.name %></h4>
-              </div>
-            </a>
-
+            <div class="thumbnail">
+              <img src="<%= campground.image %>" alt="campground"/>
+              <h4 class="text-center caption"><%= campground.name %></h4>
+              <p class="text-center"><a class="btn btn-primary" href="campgrounds/<%= campground._id %>">More Info</a></p>
+            </div>
           </div>
       <% } %>
     </div>
