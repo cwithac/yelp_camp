@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const Campground = require('../models/campgrounds.js');
 
+//Index
 app.get('/', async (req, res) => {
   try {
     const allCampgrounds = await Campground.find();
@@ -11,10 +12,12 @@ app.get('/', async (req, res) => {
   };
 });
 
+//New
 app.get('/new', (req, res) => {
     res.render('new');
 });
 
+//Create
 app.post('/', async (req, res) => {
   try {
     const newCampground = await Campground.create(req.body);
@@ -24,6 +27,7 @@ app.post('/', async (req, res) => {
   };
 });
 
+//Show
 app.get('/:id', async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id);
