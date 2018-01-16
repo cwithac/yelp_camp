@@ -17,6 +17,8 @@ app.use(expressSanitizer());
 //Controller Middleware
 const campgroundsController = require('./controllers/campgrounds.js');
 app.use('/campgrounds', campgroundsController);
+const commentsController = require('./controllers/comments.js');
+app.use('/comments', commentsController);
 
 //Landing Page Route
 app.get('/', (req, res) => {

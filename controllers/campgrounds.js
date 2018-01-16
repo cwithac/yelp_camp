@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const Campground = require('../models/campgrounds.js');
+const Comment = require('../models/comments.js');
 
 //Index
 app.get('/', async (req, res) => {
@@ -38,7 +39,8 @@ app.post('/', async (req, res) => {
 app.get('/:id', async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id);
-    res.render('show', {foundCampground});
+    const associatedComments = await Comment.find({ campground: foundCampground._id });
+    res.render('show', {foundCampground, associatedComments});
   } catch (err) {
     res.send(err.message);
   };
