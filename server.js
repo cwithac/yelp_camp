@@ -48,6 +48,10 @@ const mongoURI = 'mongodb://localhost/yelpcamp';
 mongoose.connect(mongoURI, { useMongoClient: true});
 mongoose.Promise = global.Promise;
 
+const db = mongoose.connection;
+db.on('error', (err) => console.log(err.message));
+db.on('connected', () => console.log('Mongo running: ', mongoURI));
+
 app.listen(PORT, () => {
   console.log('Yelp Camp is listening on port', PORT);
 });
