@@ -63,5 +63,15 @@ app.put('/:id', async (req, res) => {
   };
 });
 
+//Destroy
+app.delete('/:id', async (req, res) => {
+  try {
+    const deletedCampground = await Campground.findByIdAndRemove(req.params.id);
+    res.redirect('/campgrounds')
+  } catch (err) {
+    res.send(err.message);
+  };
+});
+
 
 module.exports = app;
