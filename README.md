@@ -13,5 +13,7 @@ Technologies Used:
 
 ### Resources
 - [Favicon](http://www.favicon.cc/?action=icon&file_id=900114)
+- [Lorem Ipsum](http://www.bobrosslipsum.com/)
+- [Default Image](https://picsum.photos/)
 
 _Modeled after 'Yelp Camp Project' via Udemy: The Web Developer Bootcamp_
