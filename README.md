@@ -9,6 +9,7 @@ Technologies Used:
 - NPM Express, EJS
 - MongoDB/Mongoose
 - Bootstrap
+- Session/Auth with Passport Local
 ```
 
 ### Resources
