@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const expressSanitizer = require('express-sanitizer');
 const passport = require('passport');
 const localStrategy = require('passport-local');
+const User = require('./models/users.js');
 
 //Middleware
 app.set('view engine', 'ejs');
@@ -15,6 +16,19 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(expressSanitizer());
+
+//Passport Middleware
+app.use(require('express-session')({
+    secret: 'qwerty',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //Controller Middleware
 const campgroundsController = require('./controllers/campgrounds.js');
