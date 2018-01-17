@@ -1,6 +1,7 @@
 const express = require('express');
 const commentsRouter = express();
 const Comment = require('../models/comments.js');
+const User = require('../models/users.js');
 
 //Create
 commentsRouter.post('/', async (req, res) => {

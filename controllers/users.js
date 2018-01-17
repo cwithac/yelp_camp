@@ -53,4 +53,12 @@ usersRouter.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+//Logged in Verification Middelware
+const isLoggedIn = (req, res, next) => {
+  if(req.isAuthenticated()) {
+    return next();
+  };
+  res.redirect('/login');
+};
+
 module.exports = usersRouter;

@@ -2,6 +2,7 @@ const express = require('express');
 const campgroundRouter = express();
 const Campground = require('../models/campgrounds.js');
 const Comment = require('../models/comments.js');
+const User = require('../models/users.js');
 
 //Index
 campgroundRouter.get('/', async (req, res) => {
@@ -38,9 +39,10 @@ campgroundRouter.post('/', async (req, res) => {
 //Show
 campgroundRouter.get('/:id', async (req, res) => {
   try {
+    const currentUser = req.user;
     const foundCampground = await Campground.findById(req.params.id);
     const associatedComments = await Comment.find({ campground: foundCampground._id });
-    res.render('show', {foundCampground, associatedComments});
+    res.render('show', {foundCampground, associatedComments, currentUser});
   } catch (err) {
     res.send(err.message);
   };
