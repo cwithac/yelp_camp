@@ -5,7 +5,7 @@ const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('../models/users.js');
 
-//Authorization
+//Authorization & Registration
 usersRouter.get('/register', async (req, res) => {
   try {
     res.render('users/register');
@@ -29,6 +29,15 @@ usersRouter.post('/', async(req, res) => {
   } catch (err) {
     res.send(err.message);
   };
-})
+});
+
+//Login
+usersRouter.get('/login', async (req, res) => {
+  try {
+    res.render('users/login');
+  } catch (err) {
+    res.send(err.message);
+  };
+});
 
 module.exports = usersRouter;
