@@ -28,3 +28,7 @@
 .thumbnail .caption-full {
   padding: 9px;
 }
+
+.well textarea {
+  width: 100%;
+}

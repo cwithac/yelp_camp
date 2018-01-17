@@ -31,9 +31,10 @@
           <div class="well">
             <section>
               <form action='/comments' method='post'>
-                <input type='text' name='content' placeholder='Leave a Comment' />
                 <input type='hidden' name='campground' value='<%= foundCampground._id %>' />
-                <input class="btn btn-success" type='submit' />
+                <textarea name='content' placeholder='Leave a Comment' rows="5"></textarea>
+                </br>
+                <button class="btn btn-success">Submit Comment</button>
               </form>
             </section>
      <% } else { %>
@@ -46,7 +47,7 @@
             <% for (comment of associatedComments) { %>
               <div class="row">
                 <div class="col-md-12">
-                    <strong>Comment Author</strong>
+                    <strong><%= comment.author.username %></strong>
                     <span class="pull-right">Date</span>
                     <p><%- comment.content %></p>
                 </div>
