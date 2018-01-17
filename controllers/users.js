@@ -16,7 +16,16 @@ usersRouter.get('/register', async (req, res) => {
 
 usersRouter.post('/', async(req, res) => {
   try {
-    res.json(req.body)
+    const newUser = await new User({username: req.body.username});
+    User.register(newUser, req.body.password, (err, user) => {
+      if (err) {
+        // console.log(err);
+        return res.render('users/register');
+      }
+      passport.authenticate('local')(req, res, () => {
+        res.redirect('/campgrounds');
+      })
+    })
   } catch (err) {
     res.send(err.message);
   };
