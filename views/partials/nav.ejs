@@ -9,6 +9,7 @@
               <li><a href="/users/register"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Register</a> </li>
               <li><a href="/users/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a> </li>
             <% } else { %>
+              <li><a href="#">Welcome <%=currentUser.username%>!</a></li>
               <li><a href="/users/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a> </li>
         <% } %>
       </ul>
