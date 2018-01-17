@@ -1,10 +1,10 @@
 const express = require('express');
-const app = express();
+const campgroundRouter = express();
 const Campground = require('../models/campgrounds.js');
 const Comment = require('../models/comments.js');
 
 //Index
-app.get('/', async (req, res) => {
+campgroundRouter.get('/', async (req, res) => {
   try {
     const allCampgrounds = await Campground.find();
     res.render('index', {allCampgrounds});
@@ -14,12 +14,12 @@ app.get('/', async (req, res) => {
 });
 
 //New
-app.get('/new', (req, res) => {
+campgroundRouter.get('/new', (req, res) => {
     res.render('new');
 });
 
 //Create
-app.post('/', async (req, res) => {
+campgroundRouter.post('/', async (req, res) => {
   try {
     if (req.body.image.trim() === '') {
       req.body.image = 'https://picsum.photos/500/300?image=1020';
@@ -36,7 +36,7 @@ app.post('/', async (req, res) => {
 });
 
 //Show
-app.get('/:id', async (req, res) => {
+campgroundRouter.get('/:id', async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id);
     const associatedComments = await Comment.find({ campground: foundCampground._id });
@@ -47,7 +47,7 @@ app.get('/:id', async (req, res) => {
 });
 
 //Edit
-app.get('/:id/edit', async (req, res) => {
+campgroundRouter.get('/:id/edit', async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id);
     res.render('edit', {foundCampground});
@@ -57,7 +57,7 @@ app.get('/:id/edit', async (req, res) => {
 });
 
 //Update
-app.put('/:id', async (req, res) => {
+campgroundRouter.put('/:id', async (req, res) => {
   try {
     req.body.description = req.sanitize(req.body.description);
     const updatedCampground = await Campground.findByIdAndUpdate(req.params.id, req.body, {new: true});
@@ -68,7 +68,7 @@ app.put('/:id', async (req, res) => {
 });
 
 //Destroy
-app.delete('/:id', async (req, res) => {
+campgroundRouter.delete('/:id', async (req, res) => {
   try {
     const deletedCampground = await Campground.findByIdAndRemove(req.params.id);
     const associatedComments = await Comment.find({ campground: deletedCampground._id }).remove();
@@ -79,4 +79,4 @@ app.delete('/:id', async (req, res) => {
 });
 
 
-module.exports = app;
+module.exports = campgroundRouter;
