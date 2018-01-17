@@ -19,6 +19,7 @@
           <h4 class="pull-right">$Price</h4>
           <h4><a href="#"><%= foundCampground.name %></a></h4>
           <p><%- foundCampground.description %></p>
+          <p><strong>Submitted By:</strong><em> <%= foundCampground.author.username %><em></p>
         </div>
       </div>
       <% if (currentUser) { %>

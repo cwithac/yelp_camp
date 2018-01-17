@@ -39,6 +39,10 @@ campgroundRouter.post('/', async (req, res) => {
     };
     req.body.description = req.sanitize(req.body.description);
     const newCampground = await Campground.create(req.body);
+    newCampground.author.id = req.user._id;
+    newCampground.author.username = req.user.username;
+    newCampground.save();
+    console.log(newCampground);
     res.redirect('campgrounds');
   } catch (err) {
     res.send(err.message);
