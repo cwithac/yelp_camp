@@ -40,4 +40,11 @@ usersRouter.get('/login', async (req, res) => {
   };
 });
 
+usersRouter.post('/login', passport.authenticate('local',
+    {
+      successRedirect: '/campgrounds',
+      failureRedirect: '/users/login'
+    }), (req, res) => {
+});
+
 module.exports = usersRouter;
