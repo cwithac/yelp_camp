@@ -6,7 +6,11 @@
   <header class="jumbotron">
     <h1>Yelp Campgrounds</h1>
     <p>Campground Sites Across the Country</p>
-    <a class="btn btn-primary" href="/campgrounds/new"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Campground</a>
+    <% if (!currentUser) { %>
+      <a href="/users/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login to Add New Campground</a>
+    <% } else { %>
+      <a class="btn btn-primary" href="/campgrounds/new"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Campground</a>
+    <% } %>
   </header>
 
   <section>
