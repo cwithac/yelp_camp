@@ -14,4 +14,12 @@ usersRouter.get('/register', async (req, res) => {
   };
 });
 
+usersRouter.post('/', async(req, res) => {
+  try {
+    res.json(req.body)
+  } catch (err) {
+    res.send(err.message);
+  };
+})
+
 module.exports = usersRouter;
