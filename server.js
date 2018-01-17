@@ -5,6 +5,8 @@ const PORT = 3001;
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const expressSanitizer = require('express-sanitizer');
+const passport = require('passport');
+const localStrategy = require('passport-local');
 
 //Middleware
 app.set('view engine', 'ejs');
@@ -19,6 +21,8 @@ const campgroundsController = require('./controllers/campgrounds.js');
 app.use('/campgrounds', campgroundsController);
 const commentsController = require('./controllers/comments.js');
 app.use('/comments', commentsController);
+const usersController = require('./controllers/users.js');
+app.use('/users', usersController);
 
 //Landing Page Route
 app.get('/', (req, res) => {
