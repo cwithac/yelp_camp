@@ -30,6 +30,12 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//Current User Middleware
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 //Controller Middleware
 const campgroundsController = require('./controllers/campgrounds.js');
 app.use('/campgrounds', campgroundsController);
@@ -38,10 +44,11 @@ app.use('/comments', commentsController);
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
 
+
+
 //Landing Page Route
 app.get('/', (req, res) => {
-  const currentUser = req.user;
-  res.render('landing', {currentUser});
+  res.render('landing');
 });
 
 //Listeners for app and MongoDB

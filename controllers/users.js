@@ -8,8 +8,7 @@ const User = require('../models/users.js');
 //Authorization & Registration
 usersRouter.get('/register', async (req, res) => {
   try {
-    const currentUser = req.user;
-    res.render('users/register', {currentUser});
+    res.render('users/register');
   } catch (err) {
     res.send(err.message);
   };
@@ -35,8 +34,7 @@ usersRouter.post('/', async(req, res) => {
 //Login
 usersRouter.get('/login', async (req, res) => {
   try {
-    const currentUser = req.user;
-    res.render('users/login', {currentUser});
+    res.render('users/login');
   } catch (err) {
     res.send(err.message);
   };

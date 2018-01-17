@@ -7,9 +7,8 @@ const User = require('../models/users.js');
 //Index
 campgroundRouter.get('/', async (req, res) => {
   try {
-    const currentUser = req.user;
     const allCampgrounds = await Campground.find();
-    res.render('index', {allCampgrounds, currentUser});
+    res.render('index', {allCampgrounds});
   } catch (err) {
     res.send(err.message);
   };
@@ -17,8 +16,7 @@ campgroundRouter.get('/', async (req, res) => {
 
 //New
 campgroundRouter.get('/new', (req, res) => {
-  const currentUser = req.user;
-    res.render('new', {currentUser});
+    res.render('new');
 });
 
 //Create
@@ -41,10 +39,9 @@ campgroundRouter.post('/', async (req, res) => {
 //Show
 campgroundRouter.get('/:id', async (req, res) => {
   try {
-    const currentUser = req.user;
     const foundCampground = await Campground.findById(req.params.id);
     const associatedComments = await Comment.find({ campground: foundCampground._id });
-    res.render('show', {foundCampground, associatedComments, currentUser});
+    res.render('show', {foundCampground, associatedComments});
   } catch (err) {
     res.send(err.message);
   };
@@ -53,9 +50,8 @@ campgroundRouter.get('/:id', async (req, res) => {
 //Edit
 campgroundRouter.get('/:id/edit', async (req, res) => {
   try {
-    const currentUser = req.user;
     const foundCampground = await Campground.findById(req.params.id);
-    res.render('edit', {foundCampground, currentUser});
+    res.render('edit', {foundCampground});
   } catch (err) {
     res.send(err.message);
   };
