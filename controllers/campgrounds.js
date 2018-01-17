@@ -4,6 +4,15 @@ const Campground = require('../models/campgrounds.js');
 const Comment = require('../models/comments.js');
 const User = require('../models/users.js');
 
+// Logged in Verification Middelware
+const isLoggedIn = (req, res, next) => {
+  if(req.isAuthenticated()) {
+    return next();
+  };
+  res.redirect('/users/login');
+};
+
+//ROUTING
 //Index
 campgroundRouter.get('/', async (req, res) => {
   try {
@@ -15,7 +24,7 @@ campgroundRouter.get('/', async (req, res) => {
 });
 
 //New
-campgroundRouter.get('/new', (req, res) => {
+campgroundRouter.get('/new', isLoggedIn, (req, res) => {
     res.render('new');
 });
 
@@ -78,6 +87,5 @@ campgroundRouter.delete('/:id', async (req, res) => {
     res.send(err.message);
   };
 });
-
 
 module.exports = campgroundRouter;
