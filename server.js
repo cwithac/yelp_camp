@@ -40,7 +40,8 @@ app.use('/users', usersController);
 
 //Landing Page Route
 app.get('/', (req, res) => {
-  res.render('landing');
+  const currentUser = req.user;
+  res.render('landing', {currentUser});
 });
 
 //Listeners for app and MongoDB

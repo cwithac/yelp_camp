@@ -7,8 +7,9 @@ const User = require('../models/users.js');
 //Index
 campgroundRouter.get('/', async (req, res) => {
   try {
+    const currentUser = req.user;
     const allCampgrounds = await Campground.find();
-    res.render('index', {allCampgrounds});
+    res.render('index', {allCampgrounds, currentUser});
   } catch (err) {
     res.send(err.message);
   };
@@ -16,7 +17,8 @@ campgroundRouter.get('/', async (req, res) => {
 
 //New
 campgroundRouter.get('/new', (req, res) => {
-    res.render('new');
+  const currentUser = req.user;
+    res.render('new', {currentUser});
 });
 
 //Create
@@ -51,8 +53,9 @@ campgroundRouter.get('/:id', async (req, res) => {
 //Edit
 campgroundRouter.get('/:id/edit', async (req, res) => {
   try {
+    const currentUser = req.user;
     const foundCampground = await Campground.findById(req.params.id);
-    res.render('edit', {foundCampground});
+    res.render('edit', {foundCampground, currentUser});
   } catch (err) {
     res.send(err.message);
   };
