@@ -32,3 +32,11 @@
 .well textarea {
   width: 100%;
 }
+
+.glyphicon-pencil {
+  color: white;
+}
+
+.mod-buttons {
+  text-align: right;
+}
