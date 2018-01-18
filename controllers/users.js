@@ -4,6 +4,7 @@ const expressSanitizer = require('express-sanitizer');
 const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('../models/users.js');
+const faker = require('faker');
 
 //Authorization & Registration
 usersRouter.get('/register', async (req, res) => {
@@ -64,5 +65,28 @@ usersRouter.get('/logout', (req, res) => {
 //   };
 //   res.redirect('/login');
 // };
+
+//=================================
+//Unsecure Faker User Data - Disabled for Deployed
+// const fakerUserData = [];
+//
+// for (let i = 0; i < 10; i++) {
+//   let fakerUserObject = {
+//     username: faker.name.firstName(),
+//     password: faker.internet.password()
+//   };
+//   fakerUserData.push(fakerUserObject);
+// };
+//
+// usersRouter.get('/makeFakerData', async (req, res) => {
+//   try {
+//     const fakeContacts = await User.create(fakerUserData);
+//     res.json(fakeContacts)
+//   } catch (err) {
+//     res.send(err.message);
+//   }
+// });
+
+//=================================
 
 module.exports = usersRouter;
