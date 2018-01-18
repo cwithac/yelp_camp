@@ -18,7 +18,7 @@
       <div class="thumbnail">
         <img class="img-responsive" src="<%= foundCampground.image %>" alt="campground">
         <div class="caption-full">
-          <h4 class="pull-right">$Price</h4>
+          <h4 class="pull-right">$<%=foundCampground.price%> per night</h4>
           <h4><a href="#"><%= foundCampground.name %></a></h4>
           <p><%- foundCampground.description %></p>
           <p><strong>Submitted By:</strong><em> <%= foundCampground.author.username %></em></p>
