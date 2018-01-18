@@ -40,3 +40,8 @@
 .mod-buttons {
   text-align: right;
 }
+
+.login-register {
+  width: 30%;
+  margin: 5% auto;
+}
