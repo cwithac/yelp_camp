@@ -52,7 +52,7 @@ campgroundRouter.post('/', async (req, res) => {
 campgroundRouter.get('/:id', async (req, res) => {
   try {
     const foundCampground = await Campground.findById(req.params.id);
-    const associatedComments = await Comment.find({ campground: foundCampground._id });
+    const associatedComments = await Comment.find({ campground: foundCampground._id }).sort({createdAt : -1});
     res.render('show', {foundCampground, associatedComments});
   } catch (err) {
     res.send(err.message);
