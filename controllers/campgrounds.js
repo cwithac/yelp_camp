@@ -32,7 +32,7 @@ campgroundRouter.get('/new', isLoggedIn, (req, res) => {
 campgroundRouter.post('/', async (req, res) => {
   try {
     if (req.body.image.trim() === '') {
-      req.body.image = 'https://picsum.photos/500/300?image=1020';
+      req.body.image = 'https://i.imgur.com/w8RCqEY.jpg';
     };
     if (req.body.description.trim() === '') {
       req.body.description = "Just pretend you are a whisper floating across a mountain. This painting comes right out of your heart. You don't want to kill all your dark areas they are very important. Look around, look at what we have. Beauty is everywhere, you only have to look to see it. We need dark in order to show light.";
