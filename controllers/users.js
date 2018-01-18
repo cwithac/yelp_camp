@@ -8,7 +8,7 @@ const User = require('../models/users.js');
 //Authorization & Registration
 usersRouter.get('/register', async (req, res) => {
   try {
-    res.render('users/register');
+    res.render('users/register', {page: 'register'});
   } catch (err) {
     res.send(err.message);
   };
@@ -35,7 +35,7 @@ usersRouter.post('/', async(req, res) => {
 //Login
 usersRouter.get('/login', async (req, res) => {
   try {
-    res.render('users/login');
+    res.render('users/login', {page: 'login'});
   } catch (err) {
     res.send(err.message);
   };
