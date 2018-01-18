@@ -17,12 +17,14 @@ Upcoming Features:
 
 - User Profile
 - User Roles
+- GoogleMaps Integration with Location
 ```
 
 ```
 Known Issues:
 
 - Route middleware with async/await
+- GoogleMaps geocode with async/await
 ```
 
 ### Resources
