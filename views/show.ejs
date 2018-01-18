@@ -11,7 +11,7 @@
         <img class="img-responsive" src="<%= foundCampground.image %>" alt="campground">
         <div class="caption-full">
           <h4 class="pull-right">$<%=foundCampground.price%> per night</h4>
-          <h4><a href="#"><%= foundCampground.name %> - <%= foundCampground.location%></a></h4>
+          <h4><a href="<%= foundCampground.locationURL %>"><%= foundCampground.name %> - <%= foundCampground.location%></a></h4>
           <p><%- foundCampground.description %></p>
           <p><strong>Submitted By:</strong><em> <%= foundCampground.author.username %></em></p>
           <% if (currentUser && foundCampground.author.id.equals(currentUser.id)) { %>
@@ -35,7 +35,7 @@
                 <input type='hidden' name='campground' value='<%= foundCampground._id %>' />
                 <textarea name='content' placeholder='Leave a Comment' rows="5"></textarea>
                 </br>
-                <button class="btn btn-success pull-right">Submit Comment</button>
+                <button class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
                 <br>
               </form>
             </section>
@@ -51,7 +51,7 @@
                     <span class="pull-right"><%=moment(comment.createdAt).fromNow()%></span>
                     <% if (currentUser && comment.author.id.equals(currentUser.id)) { %>
                     <form action="/comments/<%= comment.id %>?_method=delete" method="POST">
-                      <button class="btn btn-xs btn-danger pull-right" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                      <button class="btn btn-xs btn-danger pull-right" type="submit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                     </form>
                     <% } %>
                     <p><%- comment.content %></p>
