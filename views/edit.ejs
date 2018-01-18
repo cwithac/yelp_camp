@@ -21,6 +21,10 @@
             <input id="campground-price" type="number" class="form-control" name="price" value="<%= foundCampground.price %>" min="0.01" step="0.01" required/>
         </div>
         <div class="form-group">
+            <label for="campground-location">Location: </label>
+            <input id="campground-location" class="form-control" type="text" name="location" value="<%= foundCampground.location %>" required>
+        </div>
+        <div class="form-group">
           <label for="campground-img">Image URL:</label>
           <input id="campground-img" class="form-control"  type="url" name="image" value="<%= foundCampground.image %>">
         </div>
