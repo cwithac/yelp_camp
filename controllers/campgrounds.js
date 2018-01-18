@@ -85,6 +85,7 @@ campgroundRouter.delete('/:id', async (req, res) => {
   try {
     const deletedCampground = await Campground.findByIdAndRemove(req.params.id);
     const associatedComments = await Comment.find({ campground: deletedCampground._id }).remove();
+    req.flash('error', 'Campground has been successfully deleted.');
     res.redirect('/campgrounds')
   } catch (err) {
     res.send(err.message);
