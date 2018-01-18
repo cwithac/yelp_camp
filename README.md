@@ -15,7 +15,7 @@ Technologies Used:
 ```
 Known Issues:
 
-- isLoggedIn() with async/await
+- Route middleware with async/await
 ```
 
 ### Resources
