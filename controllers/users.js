@@ -44,7 +44,9 @@ usersRouter.get('/login', async (req, res) => {
 usersRouter.post('/login', passport.authenticate('local',
     {
       successRedirect: '/campgrounds',
-      failureRedirect: '/users/login'
+      failureRedirect: '/users/login',
+      failureFlash: true,
+      successFlash: 'Welcome to YelpCamp!'
     }), (req, res) => {
 });
 
