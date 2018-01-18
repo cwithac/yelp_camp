@@ -13,6 +13,13 @@ Technologies Used:
 ```
 
 ```
+Upcoming Features:
+
+- User Profile
+- User Roles
+```
+
+```
 Known Issues:
 
 - Route middleware with async/await
