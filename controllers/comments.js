@@ -11,6 +11,7 @@ commentsRouter.post('/', async (req, res) => {
     const newComment = await Comment.create(req.body);
     newComment.author.id = req.user._id;
     newComment.author.username = req.user.username;
+    newComment.date = Date.now;
     newComment.save();
     res.redirect('/campgrounds/' + newComment.campground);
   } catch (err) {
