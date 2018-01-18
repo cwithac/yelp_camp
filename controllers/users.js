@@ -51,7 +51,7 @@ usersRouter.post('/login', passport.authenticate('local',
 //Logout
 usersRouter.get('/logout', (req, res) => {
   req.logout();
-  req.flash('info', 'Logout Successful');
+  // req.flash('info', 'Logout Successful');
   res.redirect('/');
 });
 
