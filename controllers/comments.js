@@ -2,6 +2,7 @@ const express = require('express');
 const commentsRouter = express();
 const Comment = require('../models/comments.js');
 const User = require('../models/users.js');
+const Campground = require('../models/campgrounds.js');
 
 //Create
 commentsRouter.post('/', async (req, res) => {
@@ -12,6 +13,16 @@ commentsRouter.post('/', async (req, res) => {
     newComment.author.username = req.user.username;
     newComment.save();
     res.redirect('/campgrounds/' + newComment.campground);
+  } catch (err) {
+    res.send(err.message);
+  };
+});
+
+//Destroy
+commentsRouter.delete('/:id', async (req, res) => {
+  try {
+    const oneComment = await Comment.findByIdAndRemove(req.params.id);
+    res.redirect('back');
   } catch (err) {
     res.send(err.message);
   };

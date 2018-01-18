@@ -53,6 +53,9 @@
                     <strong><%= comment.author.username %></strong>
                     <span class="pull-right">Date</span>
                     <p><%- comment.content %></p>
+                    <form action="/comments/<%= comment.id %>?_method=delete" method="POST">
+                      <button class="btn btn-xs btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                    </form>
                 </div>
               </div>
             <% } %>
