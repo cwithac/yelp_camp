@@ -1,7 +1,7 @@
 //Global Variables/Initiators
 const express = require('express');
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const expressSanitizer = require('express-sanitizer');
@@ -58,7 +58,7 @@ app.get('/', (req, res) => {
 });
 
 //Listeners for app and MongoDB
-const mongoURI = 'mongodb://localhost/yelpcamp';
+const mongoURI = process.env.MONGODB_URI ||'mongodb://localhost/yelpcamp';
 mongoose.connect(mongoURI, { useMongoClient: true});
 mongoose.Promise = global.Promise;
 
