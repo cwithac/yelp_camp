@@ -52,7 +52,7 @@ usersRouter.post('/login', passport.authenticate('local',
 usersRouter.get('/logout', (req, res) => {
   req.logout();
   // req.flash('info', 'Logout Successful');
-  res.redirect('/');
+  res.redirect('back');
 });
 
 //Logged in Verification Middelware
