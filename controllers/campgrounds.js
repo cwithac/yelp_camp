@@ -42,8 +42,7 @@ campgroundRouter.post('/', async (req, res) => {
     newCampground.author.id = req.user._id;
     newCampground.author.username = req.user.username;
     newCampground.save();
-    console.log(newCampground);
-    res.redirect('campgrounds');
+    res.redirect('/campgrounds/' + newCampground._id);
   } catch (err) {
     res.send(err.message);
   };
