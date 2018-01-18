@@ -33,5 +33,6 @@ Known Issues:
 - [Favicon](http://www.favicon.cc/?action=icon&file_id=900114)
 - [Lorem Ipsum](http://www.bobrosslipsum.com/)
 - [Default Image](https://pixabay.com/photo-548022/)
+- [Seed Content](https://greatist.com/fitness/best-camping-united-states)
 
 _Modeled after 'Yelp Camp Project' via Udemy: The Web Developer Bootcamp_
