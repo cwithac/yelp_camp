@@ -21,8 +21,14 @@
   width: 100%;
 }
 
+.thumbnail img.index {
+  width: 100%;
+  height: 20vh;
+}
+
 .thumbnail {
   padding: 0;
+  word-wrap: break-word;
 }
 
 .thumbnail .caption-full {
