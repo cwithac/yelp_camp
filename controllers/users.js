@@ -70,9 +70,9 @@ usersRouter.get('/logout', (req, res) => {
 //Unsecure Faker User Data - Disabled for Deployed
 // const fakerUserData = [];
 //
-// for (let i = 0; i < 10; i++) {
+// for (let i = 0; i < 5; i++) {
 //   let fakerUserObject = {
-//     username: faker.name.firstName(),
+//     username: faker.internet.userName(),
 //     password: faker.internet.password()
 //   };
 //   fakerUserData.push(fakerUserObject);
