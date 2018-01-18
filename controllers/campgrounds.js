@@ -16,7 +16,7 @@ const isLoggedIn = (req, res, next) => {
 //Index
 campgroundRouter.get('/', async (req, res) => {
   try {
-    const allCampgrounds = await Campground.find();
+    const allCampgrounds = await Campground.find().sort({location : 1});
     res.render('index', {allCampgrounds, page: 'campgrounds'});
   } catch (err) {
     res.send(err.message);
