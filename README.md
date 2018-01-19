@@ -18,6 +18,7 @@ Upcoming Features:
 - User Profile
 - User Roles
 - GoogleMaps Integration with Location
+- Search/Filter Functionality 
 ```
 
 ```
