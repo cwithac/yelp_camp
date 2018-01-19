@@ -10,6 +10,8 @@ Technologies Used:
 - MongoDB/Mongoose
 - Bootstrap
 - Session/Auth with Passport Local
+- CRUD/REST (CRUD: Campgrounds, CRD: Comments, CR: Users)
+- RegEx Form Validation
 ```
 
 ```
@@ -18,7 +20,7 @@ Upcoming Features:
 - User Profile
 - User Roles
 - GoogleMaps Integration with Location
-- Search/Filter Functionality 
+- Search/Filter Functionality
 ```
 
 ```
