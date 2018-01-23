@@ -22,6 +22,7 @@ Upcoming Features:
 - User Roles
 - GoogleMaps Integration with Location
 - Search/Filter Functionality
+- CSS Cleanup (Better Responsive Design)
 ```
 
 ```
