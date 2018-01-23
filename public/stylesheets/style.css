@@ -55,3 +55,11 @@
 .caption {
   margin: 0;
 }
+
+input[type="radio"]{
+  margin: 0 1px 0 2%;
+}
+
+p .glyphicon-star {
+  color: #f0ad4e;
+}

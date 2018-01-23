@@ -31,10 +31,23 @@
       <% if (currentUser) { %>
           <div class="well">
             <section>
-              <form action='/comments' method='post'>
+              <form action='/comments' method='POST'>
                 <input type='hidden' name='campground' value='<%= foundCampground._id %>' />
                 <textarea name='content' placeholder='Leave a Comment' rows="5"></textarea>
                 </br>
+                <label for="comment_rating">Rating:</label>
+                  <fieldset class="form-group radio-buttons" id="comment_rating">
+                    <input type="radio" name="rating" value="1" />
+                    <label for="rate1">1 <span class="glyphicon glyphicon-star" aria-hidden="true"></span></label>
+                    <input type="radio" name="rating" value="2" />
+                    <label for="rate2">2 <span class="glyphicon glyphicon-star" aria-hidden="true"></span></label>
+                    <input type="radio" name="rating" value="3" />
+                    <label for="rate3">3 <span class="glyphicon glyphicon-star" aria-hidden="true"></span></label>
+                    <input type="radio" name="rating" value="4" />
+                    <label for="rate4">4 <span class="glyphicon glyphicon-star" aria-hidden="true"></span></label>
+                    <input type="radio" name="rating" value="5" checked="true"/>
+                    <label for="rate5">5 <span class="glyphicon glyphicon-star" aria-hidden="true"></span></label>
+                  </fieldset>
                 <button class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
                 <br>
               </form>
@@ -55,6 +68,37 @@
                     </form>
                     <% } %>
                     <p><%- comment.content %></p>
+                    <% if (comment.rating === 1) { %>
+                      <p>
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                      </p>
+                      <% } else if (comment.rating === 2) { %>
+                        <p>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        </p>
+                      <% } else if (comment.rating === 3) { %>
+                        <p>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        </p>
+                      <% } else if (comment.rating === 4) { %>
+                        <p>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        </p>
+                      <% } else if (comment.rating === 5) { %>
+                        <p>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        </p>
+                      <% } %>
                     <hr>
                 </div>
               </div>
