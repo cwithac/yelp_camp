@@ -17,7 +17,6 @@ Technologies Used:
 ```
 Upcoming Features:
 
-- Star Ratings
 - User Profile
 - User Roles
 - GoogleMaps Integration with Location
