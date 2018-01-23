@@ -2,7 +2,7 @@
 
 [Repo](https://github.com/cwithac/yelp_camp) & [Live Site](https://infinite-springs-32065.herokuapp.com/)
 
-### Guest Login username and password: _guest123_
+Guest Login username and password: _guest123_
 
 ```
 Technologies Used:
